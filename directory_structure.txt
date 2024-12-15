@@ -1,0 +1,199 @@
+ Volume in drive C has no label.
+ Volume Serial Number is E2B1-4A94
+
+ Directory of C:\android\ben_api
+
+14/12/2024  00:41    <DIR>          .
+14/12/2024  00:13    <DIR>          ..
+14/12/2024  00:14    <DIR>          .dart_tool
+14/12/2024  00:13               102 .dockerignore
+14/12/2024  00:13               853 .env
+14/12/2024  00:13               133 .gitignore
+14/12/2024  00:13    <DIR>          .vscode
+14/12/2024  00:13             1.068 analysis_options.yaml
+14/12/2024  00:13    <DIR>          bin
+14/12/2024  00:13                32 CHANGELOG.md
+14/12/2024  00:14               371 config.json
+14/12/2024  00:41                 0 directory_structure.txt
+14/12/2024  00:13               267 docker-compose.yml
+14/12/2024  00:13             1.045 Dockerfile
+14/12/2024  00:20    <DIR>          lib
+14/12/2024  00:13             1.083 LICENSE
+14/12/2024  00:13    <DIR>          public
+14/12/2024  00:13            17.012 pubspec.lock
+14/12/2024  00:13               294 pubspec.yaml
+14/12/2024  00:13               414 README.md
+14/12/2024  00:13    <DIR>          storage
+              13 File(s)         22.674 bytes
+
+ Directory of C:\android\ben_api\.dart_tool
+
+14/12/2024  00:14    <DIR>          .
+14/12/2024  00:41    <DIR>          ..
+14/12/2024  00:13            14.815 package_config.json
+14/12/2024  00:14                63 vania_config.json
+               2 File(s)         14.878 bytes
+
+ Directory of C:\android\ben_api\.vscode
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:41    <DIR>          ..
+14/12/2024  00:13               381 launch.json
+               1 File(s)            381 bytes
+
+ Directory of C:\android\ben_api\bin
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:41    <DIR>          ..
+14/12/2024  00:13               150 server.dart
+               1 File(s)            150 bytes
+
+ Directory of C:\android\ben_api\lib
+
+14/12/2024  00:20    <DIR>          .
+14/12/2024  00:41    <DIR>          ..
+14/12/2024  00:13    <DIR>          app
+14/12/2024  00:13    <DIR>          config
+14/12/2024  00:13    <DIR>          database
+14/12/2024  00:13    <DIR>          lang
+14/12/2024  00:13    <DIR>          route
+               0 File(s)              0 bytes
+
+ Directory of C:\android\ben_api\lib\app
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:20    <DIR>          ..
+14/12/2024  00:13    <DIR>          http
+14/12/2024  00:27    <DIR>          models
+14/12/2024  00:13    <DIR>          providers
+               0 File(s)              0 bytes
+
+ Directory of C:\android\ben_api\lib\app\http
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:13    <DIR>          ..
+14/12/2024  00:25    <DIR>          controllers
+14/12/2024  00:13    <DIR>          middleware
+               0 File(s)              0 bytes
+
+ Directory of C:\android\ben_api\lib\app\http\controllers
+
+14/12/2024  00:25    <DIR>          .
+14/12/2024  00:13    <DIR>          ..
+14/12/2024  00:32                 0 customers_controller.dart
+14/12/2024  00:13               740 home_controller.dart
+14/12/2024  00:25                 0 orderitems_controller.dart
+14/12/2024  00:25                 0 orders_controller.dart
+14/12/2024  00:25                 0 productnotes_controller.dart
+14/12/2024  00:25                 0 products_controller.dart
+14/12/2024  00:25                 0 vendors_controller.dart
+14/12/2024  00:13    <DIR>          ws
+               7 File(s)            740 bytes
+
+ Directory of C:\android\ben_api\lib\app\http\controllers\ws
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:25    <DIR>          ..
+14/12/2024  00:13               289 chat_web_socket_controller.dart
+               1 File(s)            289 bytes
+
+ Directory of C:\android\ben_api\lib\app\http\middleware
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:13    <DIR>          ..
+14/12/2024  00:13                92 authenticate.dart
+14/12/2024  00:13               258 error_response_middleware.dart
+14/12/2024  00:13               129 home_middleware.dart
+               3 File(s)            479 bytes
+
+ Directory of C:\android\ben_api\lib\app\models
+
+14/12/2024  00:27    <DIR>          .
+14/12/2024  00:13    <DIR>          ..
+14/12/2024  00:32                 0 customer_model.dart
+14/12/2024  00:26                 0 orderitem_model.dart
+14/12/2024  00:26                 0 order_model.dart
+14/12/2024  00:27                 0 productnote_model.dart
+14/12/2024  00:27                 0 product_model.dart
+14/12/2024  00:13               113 user.dart
+14/12/2024  00:26                 0 vendor_model.dart
+               7 File(s)            113 bytes
+
+ Directory of C:\android\ben_api\lib\app\providers
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:13    <DIR>          ..
+14/12/2024  00:13               424 route_service_provider.dart
+               1 File(s)            424 bytes
+
+ Directory of C:\android\ben_api\lib\config
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:20    <DIR>          ..
+14/12/2024  00:13               352 app.dart
+14/12/2024  00:13               163 auth.dart
+14/12/2024  00:13             2.114 cors.dart
+               3 File(s)          2.629 bytes
+
+ Directory of C:\android\ben_api\lib\database
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:20    <DIR>          ..
+14/12/2024  00:13    <DIR>          migrations
+               0 File(s)              0 bytes
+
+ Directory of C:\android\ben_api\lib\database\migrations
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:13    <DIR>          ..
+14/12/2024  00:13               320 create_users_table.dart
+14/12/2024  00:13               545 migrate.dart
+               2 File(s)            865 bytes
+
+ Directory of C:\android\ben_api\lib\lang
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:20    <DIR>          ..
+14/12/2024  00:13    <DIR>          en
+               0 File(s)              0 bytes
+
+ Directory of C:\android\ben_api\lib\lang\en
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:13    <DIR>          ..
+14/12/2024  00:13                94 message.json
+               1 File(s)             94 bytes
+
+ Directory of C:\android\ben_api\lib\route
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:20    <DIR>          ..
+14/12/2024  00:32               971 api_route.dart
+14/12/2024  00:13               214 web.dart
+14/12/2024  00:13               322 web_socket.dart
+               3 File(s)          1.507 bytes
+
+ Directory of C:\android\ben_api\public
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:41    <DIR>          ..
+14/12/2024  00:13                 0 .gitkeep
+               1 File(s)              0 bytes
+
+ Directory of C:\android\ben_api\storage
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:41    <DIR>          ..
+14/12/2024  00:13    <DIR>          app
+               0 File(s)              0 bytes
+
+ Directory of C:\android\ben_api\storage\app
+
+14/12/2024  00:13    <DIR>          .
+14/12/2024  00:13    <DIR>          ..
+14/12/2024  00:13                 0 .gitkeep
+               1 File(s)              0 bytes
+
+     Total Files Listed:
+              47 File(s)         45.223 bytes
+              62 Dir(s)  20.456.194.048 bytes free
