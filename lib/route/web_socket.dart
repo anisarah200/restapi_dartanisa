@@ -1,5 +1,5 @@
 import 'package:vania/vania.dart';
-import 'package:ben_api/app/http/controllers/ws/chat_web_socket_controller.dart';
+import 'package:nisa_restapi/app/http/controllers/ws/chat_web_socket_controller.dart';
 
 class WebSocketRoute implements Route {
   @override

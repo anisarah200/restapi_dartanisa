@@ -6,7 +6,6 @@ class CustomersController {
   // GET /customers
   static Future<Response> getAll(Request request) async {
     try {
-      // Query semua kolom dari tabel customers
       final conn = await DatabaseProvider.getConnection();
       final results = await conn.query('''
         SELECT 
@@ -15,7 +14,7 @@ class CustomersController {
         FROM customers
       ''');
 
-      // Map hasil query ke dalam JSON lengkap
+      // Memetakan hasil query ke JSON
       final customers = results
           .map((row) => {
                 'cust_id': row[0],
@@ -29,39 +28,15 @@ class CustomersController {
               })
           .toList();
 
-      // Mengembalikan JSON lengkap
       return Response.ok(
-        jsonEncode(customers),
+        jsonEncode(
+            {'message': 'Customers fetched successfully', 'data': customers}),
         headers: {'Content-Type': 'application/json'},
       );
     } catch (e) {
       print('Error fetching customers: $e');
-
-      // Fallback: Kembalikan data dummy
-      final customersDummy = [
-        {
-          'cust_id': 'C001',
-          'cust_name': 'John Doe',
-          'cust_address': '123 Elm Street',
-          'cust_city': 'New York',
-          'cust_state': 'NY',
-          'cust_zip': '10001',
-          'cust_country': 'USA',
-          'cust_tel': '123-456-7890'
-        },
-        {
-          'cust_id': 'C002',
-          'cust_name': 'Jane Smith',
-          'cust_address': '456 Oak Avenue',
-          'cust_city': 'Los Angeles',
-          'cust_state': 'CA',
-          'cust_zip': '90001',
-          'cust_country': 'USA',
-          'cust_tel': '987-654-3210'
-        }
-      ];
-      return Response.ok(
-        jsonEncode(customersDummy),
+      return Response.internalServerError(
+        body: jsonEncode({'error': 'Failed to fetch customers'}),
         headers: {'Content-Type': 'application/json'},
       );
     }
@@ -73,25 +48,28 @@ class CustomersController {
       final payload = await request.readAsString();
       final data = jsonDecode(payload);
 
-      // Validasi semua kolom
-      if (data['cust_id'] == null || 
-          data['cust_name'] == null || 
-          data['cust_address'] == null || 
-          data['cust_city'] == null || 
-          data['cust_state'] == null || 
-          data['cust_zip'] == null || 
-          data['cust_country'] == null || 
-          data['cust_tel'] == null) {
-        return Response(
-          400,
-          body: jsonEncode({'error': 'Invalid data'}),
-          headers: {'Content-Type': 'application/json'},
-        );
+      // Validasi input
+      final requiredFields = [
+        'cust_id',
+        'cust_name',
+        'cust_address',
+        'cust_city',
+        'cust_state',
+        'cust_zip',
+        'cust_country',
+        'cust_tel'
+      ];
+      for (var field in requiredFields) {
+        if (data[field] == null) {
+          return Response(
+            400,
+            body: jsonEncode({'error': 'Field $field is required'}),
+            headers: {'Content-Type': 'application/json'},
+          );
+        }
       }
 
       final conn = await DatabaseProvider.getConnection();
-
-      // Query INSERT untuk semua kolom
       await conn.query(
         '''
         INSERT INTO customers (cust_id, cust_name, cust_address, cust_city, cust_state, cust_zip, cust_country, cust_tel)
@@ -129,24 +107,27 @@ class CustomersController {
       final payload = await request.readAsString();
       final data = jsonDecode(payload);
 
-      // Validasi semua kolom yang akan diupdate
-      if (data['cust_name'] == null || 
-          data['cust_address'] == null || 
-          data['cust_city'] == null || 
-          data['cust_state'] == null || 
-          data['cust_zip'] == null || 
-          data['cust_country'] == null || 
-          data['cust_tel'] == null) {
-        return Response(
-          400,
-          body: jsonEncode({'error': 'Invalid data'}),
-          headers: {'Content-Type': 'application/json'},
-        );
+      // Validasi input
+      final requiredFields = [
+        'cust_name',
+        'cust_address',
+        'cust_city',
+        'cust_state',
+        'cust_zip',
+        'cust_country',
+        'cust_tel'
+      ];
+      for (var field in requiredFields) {
+        if (data[field] == null) {
+          return Response(
+            400,
+            body: jsonEncode({'error': 'Field $field is required'}),
+            headers: {'Content-Type': 'application/json'},
+          );
+        }
       }
 
       final conn = await DatabaseProvider.getConnection();
-
-      // Query UPDATE untuk memperbarui data
       final result = await conn.query(
         '''
         UPDATE customers 
@@ -166,7 +147,11 @@ class CustomersController {
       );
 
       if (result.affectedRows == 0) {
-        return Response(404, body: jsonEncode({'error': 'Customer not found'}));
+        return Response(
+          404,
+          body: jsonEncode({'error': 'Customer not found'}),
+          headers: {'Content-Type': 'application/json'},
+        );
       }
 
       return Response(
@@ -178,6 +163,7 @@ class CustomersController {
       print('Error updating customer: $e');
       return Response.internalServerError(
         body: jsonEncode({'error': 'Failed to update customer'}),
+        headers: {'Content-Type': 'application/json'},
       );
     }
   }
@@ -186,12 +172,17 @@ class CustomersController {
   static Future<Response> delete(Request request, String id) async {
     try {
       final conn = await DatabaseProvider.getConnection();
-
-      // Query DELETE untuk menghapus data
-      final result = await conn.query('DELETE FROM customers WHERE cust_id = ?', [id]);
+      final result = await conn.query(
+        'DELETE FROM customers WHERE cust_id = ?',
+        [id],
+      );
 
       if (result.affectedRows == 0) {
-        return Response(404, body: jsonEncode({'error': 'Customer not found'}));
+        return Response(
+          404,
+          body: jsonEncode({'error': 'Customer not found'}),
+          headers: {'Content-Type': 'application/json'},
+        );
       }
 
       return Response(
@@ -203,6 +194,7 @@ class CustomersController {
       print('Error deleting customer: $e');
       return Response.internalServerError(
         body: jsonEncode({'error': 'Failed to delete customer'}),
+        headers: {'Content-Type': 'application/json'},
       );
     }
   }

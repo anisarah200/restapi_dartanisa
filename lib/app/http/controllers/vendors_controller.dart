@@ -89,13 +89,13 @@ class VendorsController {
 
       return Response(
         201,
-        body: jsonEncode({'message': 'Vendor created successfully'}),
+        body: jsonEncode({'message': 'Vendors berhasil dibuat'}),
         headers: {'Content-Type': 'application/json'},
       );
     } catch (e) {
       print('Error creating vendor: $e');
       return Response.internalServerError(
-        body: jsonEncode({'error': 'Failed to create vendor'}),
+        body: jsonEncode({'error': 'vendors gagal dibuat'}),
         headers: {'Content-Type': 'application/json'},
       );
     }
@@ -134,18 +134,19 @@ class VendorsController {
       );
 
       if (result.affectedRows == 0) {
-        return Response(404, body: jsonEncode({'error': 'Vendor not found'}));
+        return Response(404,
+            body: jsonEncode({'error': 'Vendor tidak di temukan'}));
       }
 
       return Response(
         200,
-        body: jsonEncode({'message': 'Vendor updated successfully'}),
+        body: jsonEncode({'message': 'Vendor berhasil di updated'}),
         headers: {'Content-Type': 'application/json'},
       );
     } catch (e) {
       print('Error updating vendor: $e');
       return Response.internalServerError(
-        body: jsonEncode({'error': 'Failed to update vendor'}),
+        body: jsonEncode({'error': 'vendos gagal di updated'}),
       );
     }
   }
@@ -154,7 +155,8 @@ class VendorsController {
   static Future<Response> delete(Request request, String id) async {
     try {
       final conn = await DatabaseProvider.getConnection();
-      final result = await conn.query('DELETE FROM vendors WHERE vend_id = ?', [id]);
+      final result =
+          await conn.query('DELETE FROM vendors WHERE vend_id = ?', [id]);
 
       if (result.affectedRows == 0) {
         return Response(404, body: jsonEncode({'error': 'Vendor not found'}));
@@ -162,13 +164,13 @@ class VendorsController {
 
       return Response(
         200,
-        body: jsonEncode({'message': 'Vendor deleted successfully'}),
+        body: jsonEncode({'message': 'Vendors berhasil di deleted'}),
         headers: {'Content-Type': 'application/json'},
       );
     } catch (e) {
       print('Error deleting vendor: $e');
       return Response.internalServerError(
-        body: jsonEncode({'error': 'Failed to delete vendor'}),
+        body: jsonEncode({'error': 'vendor gagal di delete'}),
       );
     }
   }
