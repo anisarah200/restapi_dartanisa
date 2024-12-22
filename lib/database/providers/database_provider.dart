@@ -27,7 +27,7 @@ class DatabaseProvider {
       host: dotenv['DB_HOST'] ?? 'localhost',
       port: int.parse(dotenv['DB_PORT'] ?? '3306'),
       user: dotenv['DB_USERNAME'] ?? 'anisarahma',
-      password: dotenv['DB_PASSWORD'] ?? '777anisarah',
+      password: dotenv['DB_PASSWORD'] ?? 'YES',
       db: dotenv['DB_DATABASE'] ?? 'nisa_restapi',
     );
     return await MySqlConnection.connect(settings);
